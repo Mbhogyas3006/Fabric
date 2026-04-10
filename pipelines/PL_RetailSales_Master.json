@@ -1,0 +1,74 @@
+{
+  "_comment": "Microsoft Fabric Data Factory Pipeline — Retail Sales Lakehouse Orchestration",
+  "_instructions": "Import this JSON into your Fabric Data Factory pipeline editor",
+
+  "name": "PL_RetailSales_Master",
+  "description": "Master pipeline: copies CSV files to Lakehouse, triggers Bronze→Silver→Gold notebooks in sequence with data quality gate.",
+
+  "activities": [
+    {
+      "name": "Copy customer_dim",
+      "type": "Copy",
+      "description": "Copy customer_dim.csv from source to Lakehouse Files/raw/",
+      "source": { "type": "DelimitedText", "path": "customer_dim.csv" },
+      "sink":   { "type": "LakehouseFiles", "path": "Files/raw/customer_dim.csv" }
+    },
+    {
+      "name": "Copy item_dim",
+      "type": "Copy",
+      "dependsOn": [{ "activity": "Copy customer_dim", "condition": "Succeeded" }],
+      "source": { "type": "DelimitedText", "path": "item_dim.csv" },
+      "sink":   { "type": "LakehouseFiles", "path": "Files/raw/item_dim.csv" }
+    },
+    {
+      "name": "Copy store_dim",
+      "type": "Copy",
+      "dependsOn": [{ "activity": "Copy item_dim", "condition": "Succeeded" }],
+      "source": { "type": "DelimitedText", "path": "store_dim.csv" },
+      "sink":   { "type": "LakehouseFiles", "path": "Files/raw/store_dim.csv" }
+    },
+    {
+      "name": "Copy time_dim",
+      "type": "Copy",
+      "dependsOn": [{ "activity": "Copy store_dim", "condition": "Succeeded" }],
+      "source": { "type": "DelimitedText", "path": "time_dim.csv" },
+      "sink":   { "type": "LakehouseFiles", "path": "Files/raw/time_dim.csv" }
+    },
+    {
+      "name": "Copy Trans_dim",
+      "type": "Copy",
+      "dependsOn": [{ "activity": "Copy time_dim", "condition": "Succeeded" }],
+      "source": { "type": "DelimitedText", "path": "Trans_dim.csv" },
+      "sink":   { "type": "LakehouseFiles", "path": "Files/raw/Trans_dim.csv" }
+    },
+    {
+      "name": "Run Bronze Notebook",
+      "type": "FabricNotebook",
+      "dependsOn": [{ "activity": "Copy Trans_dim", "condition": "Succeeded" }],
+      "notebookName": "01_bronze_ingestion"
+    },
+    {
+      "name": "Run Data Quality",
+      "type": "FabricNotebook",
+      "dependsOn": [{ "activity": "Run Bronze Notebook", "condition": "Succeeded" }],
+      "notebookName": "04_data_quality"
+    },
+    {
+      "name": "Run Silver Notebook",
+      "type": "FabricNotebook",
+      "dependsOn": [{ "activity": "Run Data Quality", "condition": "Succeeded" }],
+      "notebookName": "02_silver_transforms"
+    },
+    {
+      "name": "Run Gold Notebook",
+      "type": "FabricNotebook",
+      "dependsOn": [{ "activity": "Run Silver Notebook", "condition": "Succeeded" }],
+      "notebookName": "03_gold_star_schema"
+    }
+  ],
+
+  "trigger": {
+    "type": "ScheduleTrigger",
+    "schedule": { "frequency": "Day", "interval": 1, "startTime": "02:00 UTC" }
+  }
+}

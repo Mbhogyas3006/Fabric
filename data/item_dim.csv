@@ -1,0 +1,21 @@
+item_id,item_name,category,sub_category,brand,unit_price,cost_price,weight_kg,is_available,launch_date,supplier_id
+1,Laptop,Electronics,Electronics — Type 2,BrandD,799.99,392.64,9.14,Y,2019-10-03,11
+2,Smartphone,Electronics,Electronics — Type 3,BrandC,599.99,387.04,2.05,Y,2020-01-29,17
+3,Headphones,Electronics,Electronics — Type 3,BrandA,149.99,77.07,7.05,Y,2019-07-02,15
+4,T-Shirt,Apparel,Apparel — Type 1,BrandB,24.99,11.73,4.42,Y,2020-02-26,20
+5,Jeans,Apparel,Apparel — Type 2,BrandB,49.99,32.12,13.54,Y,2022-07-25,11
+6,Running Shoes,Footwear,Footwear — Type 3,BrandC,89.99,43.91,2.47,Y,2020-11-20,15
+7,Coffee Maker,Appliances,Appliances — Type 2,BrandC,59.99,32.96,1.44,Y,2020-03-16,17
+8,Blender,Appliances,Appliances — Type 2,BrandB,39.99,19.72,5.36,Y,2018-04-14,10
+9,Desk Chair,Furniture,Furniture — Type 2,BrandE,199.99,125.29,9.85,Y,2020-08-21,10
+10,Bookshelf,Furniture,Furniture — Type 3,BrandA,129.99,80.52,6.52,Y,2022-12-13,9
+11,Novel — Fiction,Books,Books — Type 3,BrandC,14.99,9.04,5.55,Y,2020-03-31,2
+12,Cookbook,Books,Books — Type 3,BrandE,24.99,12.22,8.34,Y,2018-05-31,13
+13,Yoga Mat,Sports,Sports — Type 3,BrandD,29.99,18.08,4.27,Y,2021-06-30,20
+14,Dumbbells Set,Sports,Sports — Type 1,BrandB,79.99,51.59,5.97,Y,2022-06-16,11
+15,Face Cream,Beauty,Beauty — Type 3,BrandC,34.99,21.03,3.07,Y,2020-11-08,13
+16,Shampoo,Beauty,Beauty — Type 3,BrandA,12.99,5.96,2.14,Y,2019-11-14,16
+17,Vitamin C,Health,Health — Type 3,BrandD,19.99,9.59,13.41,Y,2018-10-14,11
+18,Protein Powder,Health,Health — Type 3,BrandC,44.99,21.71,14.86,Y,2022-02-23,10
+19,Notebook,Stationery,Stationery — Type 3,BrandC,8.99,4.96,7.69,Y,2020-09-30,19
+20,Pen Set,Stationery,Stationery — Type 2,BrandD,15.99,9.8,5.59,Y,2021-10-11,4

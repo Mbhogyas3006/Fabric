@@ -1,0 +1,11 @@
+store_id,store_name,store_type,city,state,country,region,sq_footage,open_date,manager_name,phone,is_active
+1,Downtown Flagship,Standard,San Antonio,TX,USA,Northeast,17551,2012-12-23,Carlos Singh,+1-994-692-4728,Y
+2,Mall of America,Premium,New York,NY,USA,Southeast,19178,2017-01-20,Sofia Kim,+1-993-961-7229,Y
+3,Westside Plaza,Express,Chicago,IL,USA,Northeast,5601,2012-02-21,James Davis,+1-521-528-3481,Y
+4,Airport Express,Express,San Antonio,TX,USA,West,18443,2018-09-10,Priya Martinez,+1-682-993-2020,Y
+5,University District,Express,Chicago,IL,USA,Southwest,12651,2017-06-05,Linda Patel,+1-585-421-3837,Y
+6,Harbor View,Standard,San Diego,CA,USA,Southwest,13609,2017-07-31,Amir Lee,+1-938-797-5331,Y
+7,Uptown,Premium,San Jose,CA,USA,Southeast,10077,2013-02-16,Wei Jones,+1-430-404-5735,Y
+8,Eastside,Premium,Houston,TX,USA,Midwest,17722,2013-11-29,Wei Martinez,+1-938-380-5715,Y
+9,Tech Corridor,Premium,Los Angeles,CA,USA,West,13309,2018-09-02,Amir Williams,+1-497-143-5712,Y
+10,Suburban South,Standard,Los Angeles,CA,USA,West,10403,2018-05-20,Linda Brown,+1-406-947-9824,Y

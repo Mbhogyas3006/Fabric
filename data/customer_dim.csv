@@ -1,0 +1,201 @@
+customer_id,first_name,last_name,full_name,email,phone,city,state,country,age,gender,loyalty_tier,join_date,is_active
+1,James,Chen,James Chen,james.chen1@email.com,+1-481-350-4657,Los Angeles,CA,USA,26,Other,Bronze,2018-12-23,Y
+2,James,Johnson,James Johnson,james.johnson2@email.com,+1-423-338-9279,New York,NY,USA,56,Male,Silver,2022-09-15,Y
+3,John,Singh,John Singh,john.singh3@email.com,+1-206-877-3615,San Jose,CA,USA,62,Female,Bronze,2019-09-29,Y
+4,Mary,Johnson,Mary Johnson,mary.johnson4@email.com,+1-589-199-6881,Philadelphia,PA,USA,72,Female,Silver,2018-06-27,Y
+5,Mary,Martinez,Mary Martinez,mary.martinez5@email.com,+1-587-180-5803,Dallas,TX,USA,71,Other,Silver,2022-01-21,Y
+6,James,Nguyen,James Nguyen,james.nguyen6@email.com,+1-433-891-5741,Los Angeles,CA,USA,23,Male,Gold,2022-04-06,Y
+7,Robert,Garcia,Robert Garcia,robert.garcia7@email.com,+1-563-314-5374,Philadelphia,PA,USA,62,Other,Silver,2019-12-02,Y
+8,Robert,Davis,Robert Davis,robert.davis8@email.com,+1-588-376-4598,Houston,TX,USA,61,Female,Gold,2018-08-18,Y
+9,Amir,Garcia,Amir Garcia,amir.garcia9@email.com,+1-610-374-2084,New York,NY,USA,31,Other,Gold,2021-07-12,Y
+10,Michael,Martinez,Michael Martinez,michael.martinez10@email.com,+1-858-569-3340,San Diego,CA,USA,34,Male,Bronze,2020-12-12,Y
+11,Fatima,Kim,Fatima Kim,fatima.kim11@email.com,+1-608-470-4593,San Antonio,TX,USA,26,Other,Bronze,2018-07-12,Y
+12,Carlos,Williams,Carlos Williams,carlos.williams12@email.com,+1-896-532-2040,Chicago,IL,USA,42,Female,Silver,2023-04-02,Y
+13,Yuki,Smith,Yuki Smith,yuki.smith13@email.com,+1-896-838-2876,Dallas,TX,USA,61,Other,Silver,2021-10-25,Y
+14,Robert,Davis,Robert Davis,robert.davis14@email.com,+1-203-839-5315,San Antonio,TX,USA,50,Male,Silver,2019-03-12,Y
+15,Yuki,Nguyen,Yuki Nguyen,yuki.nguyen15@email.com,+1-719-723-4258,Phoenix,AZ,USA,27,Female,Silver,2023-12-13,N
+16,Jennifer,Davis,Jennifer Davis,jennifer.davis16@email.com,+1-219-214-6947,San Jose,CA,USA,74,Female,Bronze,2020-09-13,Y
+17,Mary,Chen,Mary Chen,mary.chen17@email.com,+1-697-935-2133,Los Angeles,CA,USA,66,Other,Silver,2019-06-10,Y
+18,Robert,Jones,Robert Jones,robert.jones18@email.com,+1-740-993-7932,Dallas,TX,USA,31,Other,Silver,2020-04-03,Y
+19,Carlos,Nguyen,Carlos Nguyen,carlos.nguyen19@email.com,+1-582-548-9479,San Antonio,TX,USA,46,Male,Bronze,2018-09-20,Y
+20,Wei,Brown,Wei Brown,wei.brown20@email.com,+1-802-325-1117,San Jose,CA,USA,22,Other,Silver,2020-07-26,Y
+21,Yuki,Garcia,Yuki Garcia,yuki.garcia21@email.com,+1-272-626-4899,New York,NY,USA,35,Other,Bronze,2019-06-26,Y
+22,Priya,Davis,Priya Davis,priya.davis22@email.com,+1-448-903-8749,San Jose,CA,USA,69,Female,Bronze,2019-02-02,Y
+23,Michael,Miller,Michael Miller,michael.miller23@email.com,+1-678-984-1887,Philadelphia,PA,USA,61,Other,Platinum,2019-02-08,Y
+24,Amir,Lee,Amir Lee,amir.lee24@email.com,+1-311-354-4139,Philadelphia,PA,USA,30,Other,Bronze,2022-09-25,Y
+25,Patricia,Lee,Patricia Lee,patricia.lee25@email.com,+1-277-553-2604,San Diego,CA,USA,21,Other,Platinum,2018-03-02,N
+26,Robert,Miller,Robert Miller,robert.miller26@email.com,+1-697-592-4502,Houston,TX,USA,73,Female,Gold,2019-11-06,Y
+27,John,Martinez,John Martinez,john.martinez27@email.com,+1-665-392-7930,San Antonio,TX,USA,62,Other,Platinum,2023-06-17,Y
+28,Patricia,Smith,Patricia Smith,patricia.smith28@email.com,+1-793-853-9883,Phoenix,AZ,USA,21,Other,Bronze,2018-07-25,Y
+29,Fatima,Lee,Fatima Lee,fatima.lee29@email.com,+1-743-261-1931,Dallas,TX,USA,50,Male,Gold,2018-10-08,Y
+30,Michael,Johnson,Michael Johnson,michael.johnson30@email.com,+1-783-352-1651,Houston,TX,USA,57,Male,Bronze,2023-11-12,Y
+31,Patricia,Nguyen,Patricia Nguyen,patricia.nguyen31@email.com,+1-933-421-4910,Phoenix,AZ,USA,34,Female,Bronze,2021-05-13,Y
+32,James,Davis,James Davis,james.davis32@email.com,+1-836-676-2638,Los Angeles,CA,USA,22,Other,Bronze,2020-12-22,Y
+33,Fatima,Johnson,Fatima Johnson,fatima.johnson33@email.com,+1-450-478-5669,Philadelphia,PA,USA,28,Female,Gold,2021-05-24,Y
+34,James,Nguyen,James Nguyen,james.nguyen34@email.com,+1-767-406-2697,Dallas,TX,USA,74,Male,Bronze,2019-03-15,Y
+35,John,Jones,John Jones,john.jones35@email.com,+1-819-315-6617,Chicago,IL,USA,31,Other,Silver,2020-12-17,Y
+36,Fatima,Martinez,Fatima Martinez,fatima.martinez36@email.com,+1-252-194-7939,Phoenix,AZ,USA,71,Female,Bronze,2021-09-28,Y
+37,Robert,Chen,Robert Chen,robert.chen37@email.com,+1-652-664-8007,Phoenix,AZ,USA,53,Male,Bronze,2019-09-03,Y
+38,Priya,Patel,Priya Patel,priya.patel38@email.com,+1-351-540-3088,Philadelphia,PA,USA,20,Female,Bronze,2018-06-13,Y
+39,Carlos,Brown,Carlos Brown,carlos.brown39@email.com,+1-882-205-6794,Houston,TX,USA,67,Other,Gold,2022-07-23,N
+40,Fatima,Martinez,Fatima Martinez,fatima.martinez40@email.com,+1-442-985-3662,Chicago,IL,USA,69,Male,Gold,2018-04-12,Y
+41,Amir,Martinez,Amir Martinez,amir.martinez41@email.com,+1-621-921-5065,Philadelphia,PA,USA,35,Male,Silver,2019-03-19,Y
+42,Yuki,Davis,Yuki Davis,yuki.davis42@email.com,+1-427-304-8541,New York,NY,USA,40,Female,Gold,2020-07-21,Y
+43,Michael,Garcia,Michael Garcia,michael.garcia43@email.com,+1-485-985-2137,Houston,TX,USA,67,Female,Bronze,2023-09-18,Y
+44,Jennifer,Smith,Jennifer Smith,jennifer.smith44@email.com,+1-318-998-5279,Dallas,TX,USA,29,Other,Platinum,2020-12-23,Y
+45,Michael,Garcia,Michael Garcia,michael.garcia45@email.com,+1-946-905-6139,San Jose,CA,USA,45,Other,Platinum,2019-04-19,Y
+46,Patricia,Jones,Patricia Jones,patricia.jones46@email.com,+1-245-825-8144,San Jose,CA,USA,18,Other,Gold,2020-03-18,Y
+47,Carlos,Martinez,Carlos Martinez,carlos.martinez47@email.com,+1-538-738-6143,Los Angeles,CA,USA,60,Male,Silver,2021-05-15,Y
+48,Jennifer,Miller,Jennifer Miller,jennifer.miller48@email.com,+1-913-402-3085,San Antonio,TX,USA,30,Female,Silver,2022-04-02,Y
+49,Priya,Kim,Priya Kim,priya.kim49@email.com,+1-508-515-9977,Chicago,IL,USA,71,Male,Bronze,2020-05-10,Y
+50,Priya,Nguyen,Priya Nguyen,priya.nguyen50@email.com,+1-529-576-8238,San Jose,CA,USA,46,Other,Bronze,2023-04-23,Y
+51,Carlos,Johnson,Carlos Johnson,carlos.johnson51@email.com,+1-490-627-6491,Chicago,IL,USA,23,Male,Silver,2020-07-09,Y
+52,James,Smith,James Smith,james.smith52@email.com,+1-450-586-2193,Chicago,IL,USA,47,Female,Gold,2020-03-07,Y
+53,Linda,Miller,Linda Miller,linda.miller53@email.com,+1-449-251-1090,San Antonio,TX,USA,75,Male,Silver,2020-06-15,Y
+54,Linda,Smith,Linda Smith,linda.smith54@email.com,+1-770-355-2988,Dallas,TX,USA,47,Male,Gold,2023-12-16,N
+55,Jennifer,Singh,Jennifer Singh,jennifer.singh55@email.com,+1-653-727-9270,San Jose,CA,USA,45,Other,Bronze,2019-10-14,Y
+56,Linda,Jones,Linda Jones,linda.jones56@email.com,+1-969-353-5543,San Diego,CA,USA,67,Other,Bronze,2020-09-06,Y
+57,Sofia,Jones,Sofia Jones,sofia.jones57@email.com,+1-440-378-6502,Los Angeles,CA,USA,38,Other,Bronze,2019-09-10,Y
+58,Sofia,Brown,Sofia Brown,sofia.brown58@email.com,+1-265-524-7678,Chicago,IL,USA,39,Other,Bronze,2018-09-13,Y
+59,Michael,Martinez,Michael Martinez,michael.martinez59@email.com,+1-988-698-1320,San Antonio,TX,USA,72,Other,Bronze,2018-01-25,N
+60,Amir,Miller,Amir Miller,amir.miller60@email.com,+1-629-651-9947,Phoenix,AZ,USA,69,Other,Gold,2023-06-23,Y
+61,Linda,Smith,Linda Smith,linda.smith61@email.com,+1-598-444-7624,San Antonio,TX,USA,64,Male,Gold,2019-06-07,N
+62,James,Martinez,James Martinez,james.martinez62@email.com,+1-603-706-1444,Dallas,TX,USA,23,Other,Bronze,2023-03-07,Y
+63,Michael,Garcia,Michael Garcia,michael.garcia63@email.com,+1-416-565-6355,Phoenix,AZ,USA,39,Female,Bronze,2022-09-23,Y
+64,Linda,Smith,Linda Smith,linda.smith64@email.com,+1-967-652-1853,Los Angeles,CA,USA,40,Male,Silver,2018-06-14,Y
+65,Patricia,Lee,Patricia Lee,patricia.lee65@email.com,+1-220-736-3496,Houston,TX,USA,33,Male,Bronze,2019-04-14,Y
+66,Linda,Chen,Linda Chen,linda.chen66@email.com,+1-462-885-7043,Houston,TX,USA,28,Other,Silver,2019-04-15,Y
+67,John,Johnson,John Johnson,john.johnson67@email.com,+1-792-126-6111,Chicago,IL,USA,54,Other,Gold,2022-03-18,Y
+68,Mary,Kim,Mary Kim,mary.kim68@email.com,+1-907-950-4978,Houston,TX,USA,24,Other,Silver,2019-05-11,Y
+69,Amir,Smith,Amir Smith,amir.smith69@email.com,+1-555-645-8018,San Jose,CA,USA,60,Female,Bronze,2021-10-29,Y
+70,Yuki,Davis,Yuki Davis,yuki.davis70@email.com,+1-308-543-6934,San Antonio,TX,USA,58,Female,Silver,2022-11-19,Y
+71,Carlos,Jones,Carlos Jones,carlos.jones71@email.com,+1-830-927-9817,Dallas,TX,USA,67,Female,Bronze,2021-01-04,Y
+72,Yuki,Martinez,Yuki Martinez,yuki.martinez72@email.com,+1-288-385-8385,Houston,TX,USA,33,Female,Silver,2022-04-02,Y
+73,Yuki,Garcia,Yuki Garcia,yuki.garcia73@email.com,+1-386-599-4475,San Diego,CA,USA,40,Female,Bronze,2021-02-05,Y
+74,Patricia,Johnson,Patricia Johnson,patricia.johnson74@email.com,+1-447-837-7658,Dallas,TX,USA,49,Other,Silver,2023-05-05,Y
+75,Linda,Singh,Linda Singh,linda.singh75@email.com,+1-217-195-5820,San Diego,CA,USA,32,Female,Silver,2021-06-08,Y
+76,Linda,Patel,Linda Patel,linda.patel76@email.com,+1-743-452-7971,Philadelphia,PA,USA,65,Other,Bronze,2023-02-02,Y
+77,Patricia,Johnson,Patricia Johnson,patricia.johnson77@email.com,+1-938-297-6169,Phoenix,AZ,USA,25,Other,Silver,2020-01-29,Y
+78,John,Chen,John Chen,john.chen78@email.com,+1-803-878-9595,San Diego,CA,USA,56,Female,Platinum,2020-03-06,Y
+79,Robert,Jones,Robert Jones,robert.jones79@email.com,+1-214-825-9751,Philadelphia,PA,USA,26,Female,Bronze,2018-08-12,Y
+80,Carlos,Lee,Carlos Lee,carlos.lee80@email.com,+1-970-602-2680,Chicago,IL,USA,73,Male,Silver,2023-04-07,Y
+81,Robert,Smith,Robert Smith,robert.smith81@email.com,+1-458-982-8827,Philadelphia,PA,USA,25,Male,Bronze,2018-10-31,Y
+82,Robert,Williams,Robert Williams,robert.williams82@email.com,+1-776-411-2395,New York,NY,USA,33,Male,Silver,2022-09-01,Y
+83,Patricia,Singh,Patricia Singh,patricia.singh83@email.com,+1-735-489-8381,San Jose,CA,USA,46,Female,Gold,2022-10-23,Y
+84,James,Kim,James Kim,james.kim84@email.com,+1-957-201-4404,San Jose,CA,USA,58,Male,Bronze,2018-11-29,Y
+85,Wei,Johnson,Wei Johnson,wei.johnson85@email.com,+1-360-102-7693,Chicago,IL,USA,46,Other,Silver,2021-04-07,Y
+86,Sofia,Jones,Sofia Jones,sofia.jones86@email.com,+1-919-980-8438,Phoenix,AZ,USA,22,Other,Bronze,2020-12-19,Y
+87,Carlos,Singh,Carlos Singh,carlos.singh87@email.com,+1-402-535-2880,San Jose,CA,USA,52,Male,Silver,2020-12-24,Y
+88,James,Williams,James Williams,james.williams88@email.com,+1-514-709-5728,Los Angeles,CA,USA,46,Male,Bronze,2021-05-30,Y
+89,Wei,Patel,Wei Patel,wei.patel89@email.com,+1-705-548-2317,Phoenix,AZ,USA,56,Male,Gold,2021-08-13,Y
+90,Mary,Brown,Mary Brown,mary.brown90@email.com,+1-890-956-1339,New York,NY,USA,66,Other,Gold,2018-06-14,Y
+91,Linda,Patel,Linda Patel,linda.patel91@email.com,+1-867-552-5557,Chicago,IL,USA,29,Other,Bronze,2023-07-08,N
+92,Jennifer,Miller,Jennifer Miller,jennifer.miller92@email.com,+1-541-428-2713,San Diego,CA,USA,72,Male,Bronze,2023-07-23,Y
+93,Yuki,Singh,Yuki Singh,yuki.singh93@email.com,+1-763-137-8451,San Antonio,TX,USA,23,Female,Bronze,2019-04-20,N
+94,Yuki,Patel,Yuki Patel,yuki.patel94@email.com,+1-201-773-9889,San Antonio,TX,USA,47,Female,Bronze,2023-10-25,Y
+95,Carlos,Davis,Carlos Davis,carlos.davis95@email.com,+1-978-152-4335,San Diego,CA,USA,35,Other,Bronze,2021-03-25,Y
+96,Mary,Smith,Mary Smith,mary.smith96@email.com,+1-845-723-4920,San Diego,CA,USA,63,Male,Bronze,2018-02-26,Y
+97,Patricia,Lee,Patricia Lee,patricia.lee97@email.com,+1-316-572-2924,Los Angeles,CA,USA,59,Male,Bronze,2021-04-10,Y
+98,Michael,Lee,Michael Lee,michael.lee98@email.com,+1-694-583-4993,Phoenix,AZ,USA,47,Other,Bronze,2020-02-20,N
+99,Sofia,Martinez,Sofia Martinez,sofia.martinez99@email.com,+1-339-984-2143,Dallas,TX,USA,35,Female,Bronze,2023-09-11,Y
+100,John,Chen,John Chen,john.chen100@email.com,+1-505-957-9022,New York,NY,USA,73,Male,Bronze,2023-06-07,Y
+101,Amir,Patel,Amir Patel,amir.patel101@email.com,+1-586-566-6272,Dallas,TX,USA,73,Male,Platinum,2020-09-05,Y
+102,Yuki,Singh,Yuki Singh,yuki.singh102@email.com,+1-620-144-6213,Houston,TX,USA,65,Female,Silver,2022-04-11,Y
+103,Linda,Smith,Linda Smith,linda.smith103@email.com,+1-329-614-6439,Chicago,IL,USA,73,Male,Gold,2022-12-09,Y
+104,James,Chen,James Chen,james.chen104@email.com,+1-347-519-3529,San Diego,CA,USA,22,Female,Silver,2020-12-21,Y
+105,Carlos,Johnson,Carlos Johnson,carlos.johnson105@email.com,+1-536-972-9742,San Antonio,TX,USA,42,Female,Silver,2023-06-22,Y
+106,Priya,Johnson,Priya Johnson,priya.johnson106@email.com,+1-440-746-5708,New York,NY,USA,32,Other,Bronze,2019-02-08,Y
+107,Linda,Williams,Linda Williams,linda.williams107@email.com,+1-910-406-1474,Los Angeles,CA,USA,20,Female,Silver,2021-04-16,Y
+108,Robert,Brown,Robert Brown,robert.brown108@email.com,+1-743-521-3950,San Antonio,TX,USA,28,Male,Bronze,2022-04-16,Y
+109,Linda,Martinez,Linda Martinez,linda.martinez109@email.com,+1-797-246-4804,Houston,TX,USA,47,Other,Bronze,2020-11-11,Y
+110,Fatima,Jones,Fatima Jones,fatima.jones110@email.com,+1-893-659-3588,San Diego,CA,USA,22,Female,Gold,2021-05-10,Y
+111,Sofia,Jones,Sofia Jones,sofia.jones111@email.com,+1-667-965-5949,San Antonio,TX,USA,30,Female,Gold,2019-03-13,Y
+112,Jennifer,Kim,Jennifer Kim,jennifer.kim112@email.com,+1-502-816-5837,San Jose,CA,USA,19,Other,Bronze,2018-02-03,Y
+113,Fatima,Kim,Fatima Kim,fatima.kim113@email.com,+1-963-608-5689,New York,NY,USA,67,Male,Silver,2021-12-14,Y
+114,Priya,Jones,Priya Jones,priya.jones114@email.com,+1-894-873-3240,Houston,TX,USA,58,Male,Gold,2018-06-11,Y
+115,James,Kim,James Kim,james.kim115@email.com,+1-573-849-3153,San Diego,CA,USA,23,Female,Bronze,2022-08-29,Y
+116,Amir,Patel,Amir Patel,amir.patel116@email.com,+1-574-643-9221,Chicago,IL,USA,35,Male,Bronze,2023-05-28,N
+117,Sofia,Lee,Sofia Lee,sofia.lee117@email.com,+1-546-923-2886,Phoenix,AZ,USA,47,Male,Bronze,2020-07-13,Y
+118,Yuki,Singh,Yuki Singh,yuki.singh118@email.com,+1-770-474-2479,San Antonio,TX,USA,68,Female,Bronze,2019-05-22,Y
+119,Priya,Miller,Priya Miller,priya.miller119@email.com,+1-853-480-2775,Phoenix,AZ,USA,61,Male,Bronze,2021-09-05,N
+120,Carlos,Johnson,Carlos Johnson,carlos.johnson120@email.com,+1-850-943-8606,Houston,TX,USA,62,Female,Silver,2019-04-23,Y
+121,John,Davis,John Davis,john.davis121@email.com,+1-318-199-4846,New York,NY,USA,74,Other,Bronze,2023-02-02,Y
+122,Michael,Kim,Michael Kim,michael.kim122@email.com,+1-960-844-3531,Dallas,TX,USA,74,Female,Silver,2023-06-28,Y
+123,James,Chen,James Chen,james.chen123@email.com,+1-579-322-8264,Phoenix,AZ,USA,46,Male,Gold,2019-02-11,N
+124,Wei,Martinez,Wei Martinez,wei.martinez124@email.com,+1-860-467-1992,Philadelphia,PA,USA,43,Female,Bronze,2019-05-16,N
+125,Mary,Nguyen,Mary Nguyen,mary.nguyen125@email.com,+1-417-757-1349,San Diego,CA,USA,21,Female,Bronze,2019-05-31,Y
+126,Mary,Lee,Mary Lee,mary.lee126@email.com,+1-983-667-4394,Houston,TX,USA,55,Male,Gold,2020-08-12,Y
+127,Amir,Martinez,Amir Martinez,amir.martinez127@email.com,+1-810-102-5542,Chicago,IL,USA,72,Male,Platinum,2020-10-23,Y
+128,Carlos,Lee,Carlos Lee,carlos.lee128@email.com,+1-226-234-1243,Los Angeles,CA,USA,40,Male,Silver,2018-03-06,Y
+129,Robert,Chen,Robert Chen,robert.chen129@email.com,+1-631-638-2862,New York,NY,USA,65,Male,Bronze,2022-01-22,Y
+130,Linda,Patel,Linda Patel,linda.patel130@email.com,+1-426-729-1710,Los Angeles,CA,USA,64,Other,Silver,2023-02-20,Y
+131,James,Davis,James Davis,james.davis131@email.com,+1-611-536-2768,New York,NY,USA,49,Other,Gold,2018-10-29,Y
+132,Priya,Williams,Priya Williams,priya.williams132@email.com,+1-267-229-5505,Philadelphia,PA,USA,57,Other,Silver,2021-08-24,Y
+133,Wei,Jones,Wei Jones,wei.jones133@email.com,+1-664-617-8048,San Jose,CA,USA,24,Other,Bronze,2020-05-30,Y
+134,Michael,Garcia,Michael Garcia,michael.garcia134@email.com,+1-664-508-7815,Houston,TX,USA,64,Male,Bronze,2021-07-04,Y
+135,Robert,Nguyen,Robert Nguyen,robert.nguyen135@email.com,+1-685-168-2494,Philadelphia,PA,USA,71,Male,Bronze,2019-01-31,Y
+136,Amir,Williams,Amir Williams,amir.williams136@email.com,+1-769-161-6400,Philadelphia,PA,USA,60,Male,Bronze,2022-09-29,Y
+137,John,Kim,John Kim,john.kim137@email.com,+1-519-460-2697,New York,NY,USA,54,Other,Bronze,2023-05-30,Y
+138,Jennifer,Lee,Jennifer Lee,jennifer.lee138@email.com,+1-769-476-2882,Los Angeles,CA,USA,66,Female,Silver,2022-10-24,Y
+139,Priya,Nguyen,Priya Nguyen,priya.nguyen139@email.com,+1-858-670-1430,San Jose,CA,USA,56,Other,Gold,2020-12-31,Y
+140,Sofia,Singh,Sofia Singh,sofia.singh140@email.com,+1-516-447-6751,Phoenix,AZ,USA,18,Male,Gold,2022-06-30,Y
+141,Mary,Chen,Mary Chen,mary.chen141@email.com,+1-743-320-7163,New York,NY,USA,44,Female,Bronze,2022-02-24,Y
+142,Amir,Kim,Amir Kim,amir.kim142@email.com,+1-810-186-1861,Philadelphia,PA,USA,27,Male,Silver,2018-07-23,Y
+143,Linda,Nguyen,Linda Nguyen,linda.nguyen143@email.com,+1-634-597-8242,Phoenix,AZ,USA,44,Female,Bronze,2023-09-30,Y
+144,Mary,Jones,Mary Jones,mary.jones144@email.com,+1-894-794-8972,San Antonio,TX,USA,51,Other,Bronze,2020-06-22,Y
+145,James,Smith,James Smith,james.smith145@email.com,+1-409-408-4460,San Jose,CA,USA,67,Male,Silver,2021-03-31,Y
+146,Linda,Chen,Linda Chen,linda.chen146@email.com,+1-640-279-3116,New York,NY,USA,42,Other,Silver,2023-08-12,Y
+147,Mary,Miller,Mary Miller,mary.miller147@email.com,+1-959-143-8147,Philadelphia,PA,USA,19,Female,Gold,2021-07-06,Y
+148,Michael,Chen,Michael Chen,michael.chen148@email.com,+1-855-527-5743,San Jose,CA,USA,25,Female,Bronze,2021-08-23,Y
+149,Linda,Lee,Linda Lee,linda.lee149@email.com,+1-906-470-2443,San Jose,CA,USA,45,Male,Bronze,2022-06-29,Y
+150,Yuki,Jones,Yuki Jones,yuki.jones150@email.com,+1-963-447-4630,San Antonio,TX,USA,39,Male,Bronze,2019-04-13,Y
+151,Fatima,Singh,Fatima Singh,fatima.singh151@email.com,+1-557-459-3419,Houston,TX,USA,33,Male,Bronze,2020-03-19,Y
+152,Amir,Singh,Amir Singh,amir.singh152@email.com,+1-871-177-3902,Chicago,IL,USA,67,Other,Bronze,2023-01-13,Y
+153,Carlos,Nguyen,Carlos Nguyen,carlos.nguyen153@email.com,+1-839-430-6179,San Jose,CA,USA,27,Female,Bronze,2022-12-17,Y
+154,Priya,Smith,Priya Smith,priya.smith154@email.com,+1-560-619-2215,Phoenix,AZ,USA,37,Female,Bronze,2018-08-22,Y
+155,Mary,Nguyen,Mary Nguyen,mary.nguyen155@email.com,+1-292-729-9307,Phoenix,AZ,USA,42,Female,Silver,2018-06-18,Y
+156,Carlos,Brown,Carlos Brown,carlos.brown156@email.com,+1-529-719-8792,San Jose,CA,USA,50,Male,Platinum,2023-01-20,Y
+157,Sofia,Johnson,Sofia Johnson,sofia.johnson157@email.com,+1-716-761-3827,Philadelphia,PA,USA,20,Male,Silver,2022-12-05,Y
+158,Robert,Garcia,Robert Garcia,robert.garcia158@email.com,+1-581-389-7347,San Jose,CA,USA,44,Female,Silver,2018-08-03,Y
+159,Mary,Garcia,Mary Garcia,mary.garcia159@email.com,+1-296-671-7333,Philadelphia,PA,USA,36,Female,Silver,2019-09-08,Y
+160,Carlos,Williams,Carlos Williams,carlos.williams160@email.com,+1-558-417-7421,San Jose,CA,USA,26,Other,Silver,2018-12-14,Y
+161,Carlos,Singh,Carlos Singh,carlos.singh161@email.com,+1-536-932-3093,San Antonio,TX,USA,60,Other,Gold,2023-11-27,Y
+162,Wei,Garcia,Wei Garcia,wei.garcia162@email.com,+1-218-471-6060,San Antonio,TX,USA,29,Male,Bronze,2023-06-15,Y
+163,Robert,Johnson,Robert Johnson,robert.johnson163@email.com,+1-502-964-2657,Chicago,IL,USA,50,Other,Gold,2023-11-27,Y
+164,Fatima,Singh,Fatima Singh,fatima.singh164@email.com,+1-832-234-7172,Philadelphia,PA,USA,27,Male,Bronze,2019-11-10,Y
+165,Michael,Garcia,Michael Garcia,michael.garcia165@email.com,+1-892-836-4891,New York,NY,USA,46,Other,Bronze,2023-01-13,Y
+166,John,Singh,John Singh,john.singh166@email.com,+1-680-955-4178,Houston,TX,USA,41,Other,Gold,2022-12-10,Y
+167,Amir,Miller,Amir Miller,amir.miller167@email.com,+1-714-640-7859,Phoenix,AZ,USA,28,Male,Gold,2019-07-21,Y
+168,Carlos,Davis,Carlos Davis,carlos.davis168@email.com,+1-580-667-2680,New York,NY,USA,63,Other,Gold,2021-03-13,Y
+169,John,Davis,John Davis,john.davis169@email.com,+1-725-250-8167,Chicago,IL,USA,23,Male,Gold,2021-12-02,N
+170,James,Miller,James Miller,james.miller170@email.com,+1-714-482-4862,San Antonio,TX,USA,42,Male,Bronze,2018-04-26,Y
+171,Yuki,Chen,Yuki Chen,yuki.chen171@email.com,+1-865-443-3392,Los Angeles,CA,USA,26,Male,Bronze,2023-04-20,Y
+172,Amir,Chen,Amir Chen,amir.chen172@email.com,+1-680-559-1086,Chicago,IL,USA,75,Male,Bronze,2020-06-02,Y
+173,Sofia,Kim,Sofia Kim,sofia.kim173@email.com,+1-740-533-2821,Dallas,TX,USA,67,Female,Bronze,2019-05-15,Y
+174,Carlos,Singh,Carlos Singh,carlos.singh174@email.com,+1-837-568-2029,San Antonio,TX,USA,25,Female,Silver,2018-03-09,Y
+175,Patricia,Chen,Patricia Chen,patricia.chen175@email.com,+1-347-398-8032,San Jose,CA,USA,18,Other,Bronze,2022-09-03,Y
+176,Wei,Garcia,Wei Garcia,wei.garcia176@email.com,+1-269-638-9914,Los Angeles,CA,USA,50,Other,Silver,2022-05-19,Y
+177,Carlos,Miller,Carlos Miller,carlos.miller177@email.com,+1-582-359-1266,New York,NY,USA,40,Male,Bronze,2019-03-01,Y
+178,Robert,Smith,Robert Smith,robert.smith178@email.com,+1-560-659-6546,Philadelphia,PA,USA,70,Other,Bronze,2023-03-19,N
+179,Carlos,Williams,Carlos Williams,carlos.williams179@email.com,+1-338-164-8498,San Diego,CA,USA,20,Female,Bronze,2020-03-28,Y
+180,Fatima,Jones,Fatima Jones,fatima.jones180@email.com,+1-727-507-9897,Philadelphia,PA,USA,48,Female,Bronze,2020-02-22,Y
+181,Yuki,Nguyen,Yuki Nguyen,yuki.nguyen181@email.com,+1-539-379-3039,New York,NY,USA,69,Female,Bronze,2022-06-27,Y
+182,Jennifer,Williams,Jennifer Williams,jennifer.williams182@email.com,+1-708-808-9151,San Antonio,TX,USA,41,Other,Bronze,2018-12-05,Y
+183,Michael,Kim,Michael Kim,michael.kim183@email.com,+1-384-658-5813,Los Angeles,CA,USA,38,Male,Bronze,2021-04-25,Y
+184,Sofia,Miller,Sofia Miller,sofia.miller184@email.com,+1-370-806-8272,San Jose,CA,USA,40,Female,Bronze,2021-12-15,Y
+185,John,Nguyen,John Nguyen,john.nguyen185@email.com,+1-258-176-7655,San Antonio,TX,USA,41,Other,Gold,2019-10-18,N
+186,Yuki,Kim,Yuki Kim,yuki.kim186@email.com,+1-894-900-8179,Chicago,IL,USA,20,Male,Bronze,2022-02-09,Y
+187,James,Kim,James Kim,james.kim187@email.com,+1-357-795-8371,San Jose,CA,USA,41,Female,Bronze,2018-11-11,Y
+188,Jennifer,Miller,Jennifer Miller,jennifer.miller188@email.com,+1-521-765-5566,Dallas,TX,USA,33,Male,Bronze,2020-02-02,Y
+189,Fatima,Patel,Fatima Patel,fatima.patel189@email.com,+1-320-368-5264,San Antonio,TX,USA,63,Female,Bronze,2021-03-15,Y
+190,Patricia,Johnson,Patricia Johnson,patricia.johnson190@email.com,+1-338-973-2213,San Diego,CA,USA,46,Male,Gold,2022-12-29,N
+191,Carlos,Garcia,Carlos Garcia,carlos.garcia191@email.com,+1-926-166-9882,Philadelphia,PA,USA,36,Female,Gold,2019-12-15,Y
+192,Patricia,Johnson,Patricia Johnson,patricia.johnson192@email.com,+1-405-911-3275,Dallas,TX,USA,33,Female,Bronze,2022-02-20,Y
+193,Robert,Kim,Robert Kim,robert.kim193@email.com,+1-288-167-6067,Dallas,TX,USA,43,Other,Silver,2023-11-24,Y
+194,Yuki,Kim,Yuki Kim,yuki.kim194@email.com,+1-275-228-6194,San Antonio,TX,USA,59,Male,Bronze,2023-10-21,Y
+195,Carlos,Kim,Carlos Kim,carlos.kim195@email.com,+1-386-886-3114,Dallas,TX,USA,45,Other,Gold,2018-08-15,Y
+196,Robert,Jones,Robert Jones,robert.jones196@email.com,+1-368-265-6286,Dallas,TX,USA,63,Male,Bronze,2023-10-27,Y
+197,John,Brown,John Brown,john.brown197@email.com,+1-850-664-5496,Los Angeles,CA,USA,26,Other,Bronze,2023-12-26,Y
+198,Priya,Kim,Priya Kim,priya.kim198@email.com,+1-357-275-6531,Chicago,IL,USA,71,Other,Bronze,2018-04-27,Y
+199,John,Nguyen,John Nguyen,john.nguyen199@email.com,+1-415-885-7825,San Jose,CA,USA,57,Other,Bronze,2021-04-01,Y
+200,Linda,Brown,Linda Brown,linda.brown200@email.com,+1-901-515-5873,Phoenix,AZ,USA,47,Male,Silver,2019-10-10,Y
