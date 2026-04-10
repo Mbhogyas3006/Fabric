@@ -1,107 +1,68 @@
 # Microsoft Fabric Retail Sales Analytics — End-to-End Lakehouse
 
-> **Complete end-to-end data engineering project on Microsoft Fabric** — covering Data Factory pipelines, Lakehouse with Delta tables, PySpark notebooks (Bronze/Silver/Gold medallion architecture), SQL Analytics Endpoint, Power BI DirectLake reporting, and Data Activator alerts.
-
-[![Microsoft Fabric](https://img.shields.io/badge/Microsoft_Fabric-Lakehouse-purple)]()
-[![PySpark](https://img.shields.io/badge/PySpark-3.4-orange)]()
-[![Delta Lake](https://img.shields.io/badge/Delta_Lake-Tables-blue)]()
-[![Power BI](https://img.shields.io/badge/Power_BI-DirectLake-yellow)]()
+A complete end-to-end retail sales analytics platform built on Microsoft Fabric — covering Data Factory pipelines, Lakehouse with Delta tables, PySpark notebooks, SQL Analytics Endpoint, and Power BI DirectLake reporting.
 
 ---
 
-## Business Context
+## Overview
 
-A retail chain operates 10 stores across the USA, selling products across 6 categories. The business needs a unified analytics platform to answer:
-
-- Which products and categories drive the most revenue and profit?
-- Which customers are at risk of churning?
-- How does sales performance vary by region, channel, and store?
-- What is the daily revenue trend and are we hitting our targets?
-
-This Fabric Lakehouse solves it by unifying 5 source data files into a clean star schema, powering a live Power BI dashboard.
+This project demonstrates how Microsoft Fabric consolidates traditionally separate services — data ingestion, transformation, warehousing, and visualization — into a unified platform on top of OneLake. The use case is a retail chain with stores across the USA, requiring a daily analytics refresh covering revenue, profitability, customer segmentation, and store performance.
 
 ---
 
 ## Architecture
 
 ```
-CSV Source Files (5 tables)
+Source CSV Files
+customers · items · stores · transactions · time
         │
-        ▼
-┌─────────────────────────────────────────────────────┐
-│           Microsoft Fabric Data Factory              │
-│   Copy Activity × 5  →  Trigger Notebooks           │
-└─────────────────────────────────────────────────────┘
+        ▼  Data Factory Pipeline (daily schedule)
         │
-        ▼
-┌─────────────────────────────────────────────────────┐
-│              Fabric Lakehouse (OneLake)              │
-│                                                      │
-│  BRONZE          SILVER              GOLD            │
-│  Raw Delta  →   Typed/Clean   →   Star Schema       │
-│  5 tables        5 tables          4 tables          │
-│                                                      │
-│  bronze_*        silver_*          gold_fact_sales   │
-│                                    gold_sales_daily  │
-│                                    gold_by_category  │
-│                                    gold_customer_sum │
-└─────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────┐
+│         Fabric Lakehouse (OneLake)       |
+│                                          │
+│  Bronze       Silver          Gold       │
+│  Raw Delta → Typed/Clean  → Star Schema  │
+│  5 tables     5 tables       4 tables    │
+└──────────────────────────────────────────┘
         │                    │
         ▼                    ▼
-┌──────────────┐   ┌──────────────────────┐
-│  SQL Analytics│   │  Power BI DirectLake │
-│  Endpoint    │   │  5-page Dashboard    │
-│  8 views     │   │  No data copy!       │
-│  T-SQL queries│  │  Sub-second queries  │
-└──────────────┘   └──────────────────────┘
-                            │
-                            ▼
-                   ┌─────────────────┐
-                   │  Data Activator │
-                   │  Revenue alerts │
-                   └─────────────────┘
+  SQL Analytics         Power BI
+  Endpoint              DirectLake
+  T-SQL views           No data copy
+        │
+        ▼
+  Data Activator
+  Revenue alerts
 ```
 
 ---
 
-## Fabric Components Used
+## Fabric Components
 
-| Component | What it does in this project |
+| Component | Role in this project |
 |---|---|
-| Data Factory Pipeline | Orchestrates the full flow — copy CSVs, trigger notebooks |
-| Lakehouse | OneLake storage — Delta tables for all 3 layers |
-| Synapse Data Engineering (Notebooks) | PySpark Bronze/Silver/Gold transforms |
-| SQL Analytics Endpoint | T-SQL views and analytics queries on Gold tables |
-| Power BI DirectLake | Live dashboard — reads Delta tables directly, no import |
-| Data Activator | Alert fires when daily revenue drops below $5,000 |
+| Data Factory | Orchestrates CSV ingestion and notebook triggers |
+| Lakehouse | OneLake Delta storage — Bronze, Silver, Gold layers |
+| Synapse Data Engineering | PySpark notebooks for all transformations |
+| SQL Analytics Endpoint | T-SQL views for ad-hoc analyst queries |
+| Power BI | DirectLake dashboard — reads Delta files directly |
+| Data Activator | Alert when daily revenue drops below threshold |
 
 ---
 
-## Star Schema Data Model
+## Data Model — Star Schema
 
 ```
-                    ┌──────────────────┐
-                    │  silver_time_dim │
-                    │  date_id (PK)    │
-                    └────────┬─────────┘
-                             │
-┌──────────────────┐         │         ┌──────────────────┐
-│ silver_customer  │         │         │  silver_item_dim  │
-│ customer_id (PK) ├─────────┤         │  item_id (PK)     │
-└──────────────────┘         │         └────────┬──────────┘
-                             │                  │
-                    ┌────────▼──────────────────▼──────────┐
-                    │          gold_fact_sales              │
-                    │  transaction_id · customer_id         │
-                    │  item_id · store_id · date_id         │
-                    │  total_amount · profit_amount         │
-                    │  quantity · discount_pct              │
-                    └────────┬─────────────────────────────┘
-                             │
-                    ┌────────▼─────────┐
-                    │ silver_store_dim  │
-                    │ store_id (PK)     │
-                    └──────────────────┘
+silver_time_dim ─────────────────────────┐
+                                          │
+silver_customer_dim ──┐                  │
+                      ├── gold_fact_sales ┤
+silver_item_dim ──────┤                  │
+                      │                  │
+silver_store_dim ─────┘                  │
+                                         │
+                    ─────────────────────┘
 ```
 
 ---
@@ -109,103 +70,44 @@ CSV Source Files (5 tables)
 ## Repository Structure
 
 ```
-fabric-retail-sales-lakehouse/
-│
-├── generate_data.py                    # Generates all 5 synthetic CSV files
-│
-├── data/                               # Your source CSV files
-│   ├── customer_dim.csv
-│   ├── item_dim.csv
-│   ├── store_dim.csv
-│   ├── time_dim.csv
-│   └── Trans_dim.csv
-│
+├── generate_data.py                   # Synthetic data generator
 ├── notebooks/
-│   ├── 01_bronze_ingestion.py          # Load CSVs → Bronze Delta tables
-│   ├── 02_silver_transforms.py         # Clean, type, validate → Silver
-│   ├── 03_gold_star_schema.py          # Star schema + aggregations → Gold
-│   └── 04_data_quality.py             # 15+ DQ checks before Gold build
-│
+│   ├── 01_bronze_ingestion.py        # CSV → Bronze Delta tables
+│   ├── 02_silver_transforms.py       # Typing, derived fields
+│   ├── 03_gold_star_schema.py        # Star schema + aggregations
+│   └── 04_data_quality.py           # 15+ DQ checks
 ├── sql/
-│   └── analytics_views.sql             # 5 views + 8 analytics queries
-│
-├── pipelines/
-│   └── PL_RetailSales_Master.json      # Data Factory pipeline design
-│
-└── docs/
-    └── PROJECT_COVER_SHEET.md
+│   └── analytics_views.sql           # 5 views + 8 analytics queries
+└── pipelines/
+    └── PL_RetailSales_Master.json    # Data Factory pipeline design
 ```
 
 ---
 
-## How to Run in Microsoft Fabric
+## Quick Start — Running in Fabric
 
-### Step 1 — Create workspace and Lakehouse
-1. Go to app.fabric.microsoft.com
-2. Create workspace: `RetailSalesWorkspace`
-3. New Item → Lakehouse → name: `RetailSalesLakehouse`
-
-### Step 2 — Upload CSV files
-1. In the Lakehouse → Files section → New folder → name `raw`
-2. Upload all 5 CSV files from `data/` folder into `Files/raw/`
-
-### Step 3 — Create notebooks
-1. New Item → Notebook
-2. Copy code from each `.py` file in `notebooks/` folder
-3. Attach each notebook to `RetailSalesLakehouse`
-4. Run in order: 01 → 04 → 02 → 03
-
-### Step 4 — Build the pipeline
-1. New Item → Data Pipeline
-2. Add Copy activities for each CSV file
-3. Add Notebook activities triggered in sequence
-4. Schedule: daily at 2:00 AM
-
-### Step 5 — Connect Power BI
-1. Open the Lakehouse → click "New Power BI report"
-2. DirectLake mode connects automatically — no setup needed
-3. Build visuals on top of `gold_fact_sales` and the Gold views
-
-### Step 6 — Set up Data Activator alert
-1. In Power BI report → set alert on daily revenue KPI card
-2. Condition: value drops below 5000
-3. Action: send email notification
+1. Create a Fabric workspace and Lakehouse named `RetailSalesLakehouse`
+2. Upload CSV files from `data/` to `Files/raw/` in the Lakehouse
+3. Import notebooks from `notebooks/` — attach to `RetailSalesLakehouse`
+4. Run in order: `01` → `04` → `02` → `03`
+5. Open Lakehouse → New Power BI report (DirectLake connects automatically)
 
 ---
 
-## Power BI Dashboard Pages
+## Synthetic Dataset
 
-| Page | Key visuals |
+| Table | Rows |
 |---|---|
-| Executive Overview | Revenue KPI, profit %, units sold, top category |
-| Sales Trends | Monthly revenue line, day-of-week bar, seasonal patterns |
-| Product Performance | Category bar chart, top 10 items table, margin heat map |
-| Customer Insights | Loyalty tier donut, RFM segments, geographic map |
-| Store Performance | Regional bar, store comparison table, channel mix |
+| Customers | 200 |
+| Items | 20 |
+| Stores | 10 |
+| Transactions | 2,000 |
+| Time | 730 |
 
 ---
 
-## Interview Talking Points
+## Key Engineering Decisions
 
-**On Fabric:** "Microsoft Fabric gives you everything in one place — Data Factory, Lakehouse, Spark notebooks, SQL endpoint, and Power BI — all on top of OneLake. You don't stitch together separate services. Data lives in one place and every layer reads from the same Delta tables."
-
-**On DirectLake:** "Power BI in DirectLake mode reads directly from the Delta Parquet files in OneLake — there's no data import, no scheduled refresh, no copy. The moment the Gold notebook writes new data, the dashboard reflects it. That's a fundamental shift from traditional Import mode."
-
-**On medallion architecture:** "Bronze is raw — exactly what came from the source, never modified. Silver cleans and types the data. Gold is business-ready — my star schema fact table with customer, item, store and time dimensions joined in. Each layer has a clear responsibility."
-
-**On Data Activator:** "Data Activator is Fabric's alerting layer. I set a rule: if daily revenue in the Power BI report drops below $5,000, fire an email to the ops team. It watches the live data — not a scheduled check, a continuous stream watch."
-
----
-
-## Resume Bullets
-
-> "Built an end-to-end retail sales analytics platform on Microsoft Fabric — implementing a Bronze/Silver/Gold medallion Lakehouse architecture with PySpark notebooks, Data Factory pipeline orchestration, star schema Gold layer, and Power BI DirectLake dashboard covering revenue, profitability, and customer segmentation across 2,000+ transactions"
-
-> "Implemented Data Factory pipeline in Microsoft Fabric orchestrating CSV ingestion, PySpark data quality validation, and multi-layer Delta table transforms — reducing manual reporting effort from days to a fully automated daily refresh"
-
----
-
-## Author
-
-**Bhogya Swetha Malladi** · Data Engineer · New York, NY
-Microsoft Fabric · Azure Databricks · Snowflake · PySpark · ADF
+- **DirectLake over Import** — Power BI reads Delta Parquet files directly from OneLake, eliminating scheduled refresh and data duplication
+- **Medallion within Fabric** — Bronze/Silver/Gold pattern applied inside a single Lakehouse, keeping the architecture consistent with enterprise standards
+- **Data Activator for alerting** — native Fabric alerting layer replaces custom Logic Apps or Azure Monitor setups
