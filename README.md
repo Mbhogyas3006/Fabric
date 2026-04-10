@@ -1,39 +1,59 @@
-# Microsoft Fabric Retail Sales Analytics — End-to-End Lakehouse
+# Microsoft Fabric Retail Sales Lakehouse
 
-A complete end-to-end retail sales analytics platform built on Microsoft Fabric — covering Data Factory pipelines, Lakehouse with Delta tables, PySpark notebooks, SQL Analytics Endpoint, and Power BI DirectLake reporting.
+End-to-end retail sales analytics platform built entirely on Microsoft Fabric — Data Factory pipeline orchestration, Lakehouse with Delta tables, PySpark notebooks, SQL Analytics Endpoint, and Power BI DirectLake reporting across a Bronze/Silver/Gold medallion architecture.
+
+![Microsoft Fabric](https://img.shields.io/badge/Microsoft%20Fabric-0078D4?style=flat&logo=microsoft&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat&logo=apachespark&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
+![Delta Lake](https://img.shields.io/badge/Delta%20Lake-00ADD8?style=flat)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 
 ---
 
-## Overview
+## Business Context
 
-This project demonstrates how Microsoft Fabric consolidates traditionally separate services — data ingestion, transformation, warehousing, and visualization — into a unified platform on top of OneLake. The use case is a retail chain with stores across the USA, requiring a daily analytics refresh covering revenue, profitability, customer segmentation, and store performance.
+A retail chain operating 10 stores across the United States needs a unified analytics platform that refreshes daily and answers questions across four domains — revenue performance, product profitability, customer behavior, and store-level comparisons.
+
+Source data arrives as flat files from five upstream systems. The analytics team needs a single governed platform where analysts can write SQL queries, managers can view live Power BI dashboards, and operations teams receive automated alerts when revenue drops below target — without managing separate infrastructure for each layer.
+
+This project demonstrates how Microsoft Fabric unifies data ingestion, transformation, warehousing, and visualization on a single platform backed by OneLake.
 
 ---
 
 ## Architecture
 
 ```
-Source CSV Files
-customers · items · stores · transactions · time
-        │
-        ▼  Data Factory Pipeline (daily schedule)
-        │
-┌──────────────────────────────────────────┐
-│         Fabric Lakehouse (OneLake)       |
-│                                          │
-│  Bronze       Silver          Gold       │
-│  Raw Delta → Typed/Clean  → Star Schema  │
-│  5 tables     5 tables       4 tables    │
-└──────────────────────────────────────────┘
-        │                    │
-        ▼                    ▼
-  SQL Analytics         Power BI
-  Endpoint              DirectLake
-  T-SQL views           No data copy
-        │
-        ▼
-  Data Activator
-  Revenue alerts
+┌──────────────────────────────────────────────────────────────┐
+│                      SOURCE FILES (5)                        │
+│   customers · items · stores · Trans_dim · time_dim          │
+└───────────────────────────────┬──────────────────────────────┘
+                                │
+                                ▼  Data Factory Pipeline
+                                │  Copy activities → notebook triggers
+                                │  Daily schedule · DQ gate
+                                │
+┌───────────────────────────────▼──────────────────────────────┐
+│                  Fabric Lakehouse — OneLake                  │
+│                                                              │
+│  ┌──────────────┐   ┌──────────────┐   ┌──────────────────┐  │
+│  │   BRONZE     │   │   SILVER     │   │      GOLD        │  │
+│  │              │   │              │   │                  │  │
+│  │ Raw Delta    │→  │ Typed fields │→  │ gold_fact_sales  │  │
+│  │ 5 tables     │   │ Derived cols │   │ gold_sales_daily │  │
+│  │ Append-only  │   │ 15+ DQ checks│   │ gold_by_category │  │
+│  │              │   │ DQ gate      │   │ gold_customer_   │  │
+│  │              │   │              │   │ summary          │  │
+│  └──────────────┘   └──────────────┘   └──────────────────┘  │
+└────────────────────────────┬─────────────────────────────────┘
+                             │                    │
+                             ▼                    ▼
+                   SQL Analytics           Power BI DirectLake
+                   Endpoint               Reads Delta files directly
+                   T-SQL views            No import · No refresh
+                             │
+                             ▼
+                      Data Activator
+                      Revenue alert rule
 ```
 
 ---
@@ -42,72 +62,106 @@ customers · items · stores · transactions · time
 
 | Component | Role in this project |
 |---|---|
-| Data Factory | Orchestrates CSV ingestion and notebook triggers |
-| Lakehouse | OneLake Delta storage — Bronze, Silver, Gold layers |
-| Synapse Data Engineering | PySpark notebooks for all transformations |
-| SQL Analytics Endpoint | T-SQL views for ad-hoc analyst queries |
-| Power BI | DirectLake dashboard — reads Delta files directly |
-| Data Activator | Alert when daily revenue drops below threshold |
+| **Data Factory** | Orchestrates the full pipeline — copy source files, trigger notebooks in sequence, daily schedule at 02:00 |
+| **Lakehouse** | Central storage on OneLake — all three medallion layers stored as Delta tables |
+| **Synapse Data Engineering** | PySpark notebooks for Bronze ingestion, Silver transforms, Gold aggregation, and data quality validation |
+| **SQL Analytics Endpoint** | T-SQL interface on top of Lakehouse Delta tables — 5 views for analyst self-service queries |
+| **Power BI** | DirectLake mode — reads Parquet files directly from OneLake, always reflects latest data without scheduled refresh |
+| **Data Activator** | Native Fabric alerting — monitors daily revenue KPI and fires an email alert when it drops below threshold |
 
 ---
 
 ## Data Model — Star Schema
 
+Gold layer produces a proper star schema with one fact table and four dimension tables. All joins are resolved at write time so Power BI reads a single denormalized table.
+
 ```
-silver_time_dim ─────────────────────────┐
-                                          │
-silver_customer_dim ──┐                  │
-                      ├── gold_fact_sales ┤
-silver_item_dim ──────┤                  │
-                      │                  │
-silver_store_dim ─────┘                  │
-                                         │
-                    ─────────────────────┘
+          dim_customer          dim_item
+               │                   │
+               └─────────┬─────────┘
+                         │
+                  gold_fact_sales  ──────  dim_store
+                         │
+                    dim_time
 ```
+
+**Gold tables**
+
+| Table | Rows | Description |
+|---|---|---|
+| `gold_fact_sales` | 2,000 | Core fact table — transactions joined to all 4 dimensions |
+| `gold_sales_daily` | ~730 | Daily revenue, profit, and transaction aggregations |
+| `gold_sales_by_category` | 20 | Revenue and margin by product category with rank |
+| `gold_customer_summary` | 200 | RFM metrics — orders, spend, recency, return rate per customer |
 
 ---
 
 ## Repository Structure
 
 ```
-├── generate_data.py                   # Synthetic data generator
+├── generate_data.py                  # Synthetic data generator — 2,960 rows across 5 files
+│
 ├── notebooks/
-│   ├── 01_bronze_ingestion.py        # CSV → Bronze Delta tables
-│   ├── 02_silver_transforms.py       # Typing, derived fields
-│   ├── 03_gold_star_schema.py        # Star schema + aggregations
-│   └── 04_data_quality.py           # 15+ DQ checks
+│   ├── 01_bronze_ingestion.py       # Load CSV files → Bronze Delta tables
+│   ├── 02_silver_transforms.py      # Type casting, derived fields, deduplication
+│   ├── 03_gold_star_schema.py       # Star schema build + 4 Gold aggregation tables
+│   └── 04_data_quality.py          # 15+ DQ checks — runs before Gold promotion
+│
 ├── sql/
-│   └── analytics_views.sql           # 5 views + 8 analytics queries
+│   └── analytics_views.sql          # 5 T-SQL views + 8 business analytics queries
+│
 └── pipelines/
-    └── PL_RetailSales_Master.json    # Data Factory pipeline design
+    └── PL_RetailSales_Master.json   # Data Factory pipeline definition
 ```
 
 ---
 
-## Quick Start — Running in Fabric
+## Running in Fabric
 
-1. Create a Fabric workspace and Lakehouse named `RetailSalesLakehouse`
-2. Upload CSV files from `data/` to `Files/raw/` in the Lakehouse
-3. Import notebooks from `notebooks/` — attach to `RetailSalesLakehouse`
-4. Run in order: `01` → `04` → `02` → `03`
-5. Open Lakehouse → New Power BI report (DirectLake connects automatically)
+**Prerequisites:** Microsoft Fabric workspace with Lakehouse capacity (free trial available at fabric.microsoft.com)
+
+```
+Step 1 — Create Lakehouse
+  Workspace → New item → Lakehouse → name: RetailSalesLakehouse
+
+Step 2 — Upload source files
+  Lakehouse → Files → New folder (name: raw)
+  Upload all files from data/ into Files/raw/
+
+Step 3 — Import notebooks
+  New item → Notebook → paste code from notebooks/
+  Attach each notebook to RetailSalesLakehouse
+
+Step 4 — Run in order
+  01_bronze_ingestion → 04_data_quality → 02_silver_transforms → 03_gold_star_schema
+
+Step 5 — Connect Power BI
+  Lakehouse → New Power BI report
+  DirectLake mode activates automatically — no gateway or import required
+```
 
 ---
 
 ## Synthetic Dataset
 
-| Table | Rows |
-|---|---|
-| Customers | 200 |
-| Items | 20 |
-| Stores | 10 |
-| Transactions | 2,000 |
-| Time | 730 |
+| File | Rows | Contents |
+|---|---|---|
+| customer_dim.csv | 200 | Demographics, loyalty tier, join date |
+| item_dim.csv | 20 | Product catalog with cost price and unit price |
+| store_dim.csv | 10 | Store locations across 5 US regions |
+| Trans_dim.csv | 2,000 | Sales transactions — channel, payment method, return flag |
+| time_dim.csv | 730 | Two years of daily date dimension records |
+
+All data is synthetically generated — no real retail or customer data.
 
 ---
 
 ## Key Engineering Decisions
 
-- **DirectLake over Import** — Power BI reads Delta Parquet files directly from OneLake, eliminating scheduled refresh and data duplication
-- **Medallion within Fabric** — Bronze/Silver/Gold pattern applied inside a single Lakehouse, keeping the architecture consistent with enterprise standards
-- **Data Activator for alerting** — native Fabric alerting layer replaces custom Logic Apps or Azure Monitor setups
+| Decision | Rationale |
+|---|---|
+| DirectLake over Import mode | Power BI reads Delta Parquet files directly from OneLake — no scheduled refresh, no data duplication, always current |
+| DQ gate before Gold | 15+ checks run after Silver completes — any failure blocks the Gold write, preventing bad data from reaching dashboards |
+| Star schema in Gold layer | All dimension joins resolved at write time — Power BI queries a single denormalized table with no runtime joins |
+| Data Activator for alerting | Native Fabric layer — no additional infrastructure. Monitors live dashboard data and fires alerts on threshold breach |
+| Single Lakehouse for all layers | Bronze, Silver, and Gold stored in one OneLake location — simplifies access control, lineage, and cost management |
